@@ -18,5 +18,11 @@ public class DetailsActivity extends AppCompatActivity {
         binding = ActivityDetailsBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
+
+        Singleton singleton = Singleton.getInstance();
+        Landmark selectedLandmark = singleton.getSentLandmark();
+        binding.nameText.setText(selectedLandmark.name);
+        binding.countryText.setText(selectedLandmark.country);
+        binding.imageView.setImageResource(selectedLandmark.image);
     }
 }
